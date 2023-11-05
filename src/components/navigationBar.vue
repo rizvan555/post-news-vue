@@ -1,18 +1,22 @@
 <template>
-  <div>
-    <p>{{ post.tags }}</p>
+  <div class="flex justify-center items-center gap-2">
+    <a href="#">
+      {{ nav.name }}
+    </a>
+    <img src="../assets/icons/caret-down.svg" alt="" />
   </div>
 </template>
 
 <script>
-import { useCounterStore } from '../stores/counter'
+import { useNavbarStore } from '../stores/navbar'
 
 export default {
-  props: ['post'],
-  setup() {
-    const allPosts = useCounterStore()
+  props: ['nav'],
 
-    return { allPosts }
+  setup() {
+    const allNavs = useNavbarStore()
+
+    return { allNavs }
   }
 }
 </script>

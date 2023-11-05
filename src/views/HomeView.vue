@@ -1,34 +1,44 @@
 <template>
-  <header class="flex justify-center items-center">
-    <div>
-      <div>{{ allPosts.getNewDate }}</div>
-    </div>
-    <div class="container">
-      <h1>The New York Times</h1>
-    </div>
-  </header>
-  <main>
-    <div>
-      <div v-for="post in allPosts.posts.posts" :key="post.id">
-        <tagNavigationBar :post="post"></tagNavigationBar>
+  <div class="flex flex-col gap-4 px-10">
+    <header class="flex justify-between items-center px-10 py-6">
+      <div>
+        <div>{{ allPosts.getNewDate }}</div>
       </div>
+      <div class="container">
+        <h1 class="text-4xl">The New York Times</h1>
+      </div>
+    </header>
+    <section class="flex gap-10 justify-center items-center">
+      <div v-for="nav in allNavs.navs" :key="nav.id">
+        <tagNavigationBar :nav="nav"></tagNavigationBar>
+      </div>
+    </section>
+    <div class="border border-b-1"></div>
+
+    <div v-for="post in allPosts.posts.posts" :key="post.id">
+      <tagMainSection :post="post"></tagMainSection>
     </div>
-  </main>
+  </div>
 </template>
 
 <script>
 import navigationBar from '@/components/NavigationBar.vue'
-import { useCounterStore } from '../stores/counter'
+import mainSection from '@/components/MainSection.vue'
+import { useNavbarStore } from '../stores/navbar'
+import { useMainStore } from '../stores/mainSection'
 
 export default {
   components: {
-    tagNavigationBar: navigationBar
+    tagNavigationBar: navigationBar,
+    tagMainSection: mainSection
   },
   setup() {
-    const allPosts = useCounterStore()
+    const allPosts = useMainStore()
     allPosts.getPosts()
 
-    return { allPosts }
+    const allNavs = useNavbarStore()
+
+    return { allPosts, allNavs }
   }
 }
 </script>

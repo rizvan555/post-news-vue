@@ -1,14 +1,11 @@
 import { defineStore } from 'pinia'
 
-export const useCounterStore = defineStore('postStore', {
+export const useMainStore = defineStore('mainStore', {
   state: () => ({
     posts: []
   }),
-  getters: {
-    getNewDate() {
-      return new Date()
-    }
-  },
+
+  getters: {},
 
   actions: {
     async getPosts() {
