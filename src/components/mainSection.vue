@@ -2,7 +2,7 @@
   <main>
     <div class="grid grid-cols-2 mx-auto">
       <div class="grid grid-cols-1">
-        <div class="flex justify-center items-center gap-4">
+        <div class="flex justify-center items-center gap-4 pb-6">
           <div class="flex flex-col w-[40vw] h-[30vh]">
             <p class="text-xl text-bolder">
               {{ post.title }}
@@ -14,6 +14,12 @@
           <div class="border w-[50vw] h-[30vh]">
             <img src="" alt="image" width="200px" height="200px" />
           </div>
+        </div>
+        <hr />
+
+        <div class="grid grid-cols-2 py-3">
+          <div>{{ post.title }}</div>
+          <div>{{ post.title }}</div>
         </div>
       </div>
     </div>

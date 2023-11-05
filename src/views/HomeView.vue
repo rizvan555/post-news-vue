@@ -5,9 +5,10 @@
         <div>{{ allPosts.getNewDate }}</div>
       </div>
       <div class="container">
-        <h1 class="text-4xl">The New York Times</h1>
+        <h1 class="text-4xl name">The New York Times</h1>
       </div>
     </header>
+
     <section class="flex gap-10 justify-center items-center">
       <div v-for="nav in allNavs.navs" :key="nav.id">
         <tagNavigationBar :nav="nav"></tagNavigationBar>
@@ -15,9 +16,9 @@
     </section>
     <div class="border border-b-1"></div>
 
-    <div v-for="post in allPosts.posts.posts" :key="post.id">
+    <main v-for="post in allPosts.posts.posts" :key="post.id">
       <tagMainSection :post="post"></tagMainSection>
-    </div>
+    </main>
   </div>
 </template>
 

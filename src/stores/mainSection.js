@@ -5,7 +5,11 @@ export const useMainStore = defineStore('mainStore', {
     posts: []
   }),
 
-  getters: {},
+  getters: {
+    crime() {
+      return this.posts.filter((post) => post.tags === 'crime')
+    }
+  },
 
   actions: {
     async getPosts() {
