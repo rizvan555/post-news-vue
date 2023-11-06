@@ -16,7 +16,7 @@
     </section>
     <div class="border border-b-1"></div>
 
-    <main v-for="post in allPosts.posts.posts" :key="post.id">
+    <main v-for="post in allPosts.posts.posts.slice(0, 1)" :key="post.id">
       <tagMainSection :post="post"></tagMainSection>
     </main>
   </div>
