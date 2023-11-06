@@ -1,11 +1,11 @@
 <template>
   <div class="flex gap-2">
-    <div class="w-[100px] h-[60px] border">
-      <img src="" alt="image" />
+    <div class="w-[40vw] h-[10vh] border">
+      <img :src="post.urlToImage && post.urlToImage" alt="image" />
     </div>
-    <div class="">
-      <p class="font-bold">{{ post.title }}</p>
-    </div>
+    <small class="">
+      <a href="#" class="font-bold">{{ post.title }}</a>
+    </small>
   </div>
 </template>
 

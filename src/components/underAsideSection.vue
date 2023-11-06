@@ -1,9 +1,11 @@
 <template>
-  <div class="w-full h-[60px] border">
-    <img src="" alt="image" />
-  </div>
-  <div class="">
-    <small class="font-bold">{{ post.title }}</small>
+  <div class="flex flex-col gap-4">
+    <div class="w-full h-[10vh] border">
+      <img :src="post.urlToImage" alt="image" />
+    </div>
+    <div class="mt-6">
+      <small class="font-bold">{{ post.title }}</small>
+    </div>
   </div>
 </template>
 

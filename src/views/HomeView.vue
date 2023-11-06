@@ -19,16 +19,20 @@
     <main>
       <div class="flex justify-between w-100%">
         <div class="flex flex-col">
-          <div class="" v-for="post in allPosts.posts.posts.slice(0, 1)" :key="post.id">
+          <div
+            class=""
+            v-for="post in allPosts.posts.articles.filter((post) => post.author === 'Jess Bravin')"
+            :key="post.id"
+          >
             <tagMainSection :post="post"></tagMainSection>
           </div>
 
           <div class="flex gap-2 py-3">
             <div
               class="w-[28vw] px-2 border-r"
-              v-for="post in allPosts.posts.posts
-                .filter((post) => post.tags.includes('crime'))
-                .slice(2, 3)"
+              v-for="post in allPosts.posts.articles
+                .filter((post) => post.author === 'wsj')
+                .slice(0, 1)"
               :key="post.id"
             >
               <tagUnderMainSection :post="post"></tagUnderMainSection>
@@ -36,9 +40,9 @@
 
             <div
               class="w-[28vw] px-2"
-              v-for="post in allPosts.posts.posts
-                .filter((post) => post.tags.includes('crime'))
-                .slice(4, 5)"
+              v-for="post in allPosts.posts.articles
+                .filter((post) => post.author === 'wsj')
+                .slice(2, 3)"
               :key="post.id"
             >
               <tagUnderMainSection :post="post"></tagUnderMainSection>
@@ -50,8 +54,8 @@
         <div class="flex flex-col border-l-2 px-2">
           <div
             class=""
-            v-for="post in allPosts.posts.posts
-              .filter((post) => post.tags.includes('love'))
+            v-for="post in allPosts.posts.articles
+              .filter((post) => post.author === 'Nick Kostov')
               .slice(0, 1)"
             :key="post.id"
           >
@@ -59,22 +63,22 @@
           </div>
           <hr />
 
-          <div class="grid grid-cols-2 py-4">
+          <div class="grid grid-cols-2 py-4 gap-4">
             <div
-              class="w-[15vw] px-1"
-              v-for="post in allPosts.posts.posts
-                .filter((post) => post.tags.includes('love'))
-                .slice(2, 3)"
+              class=""
+              v-for="post in allPosts.posts.articles
+                .filter((post) => post.author === 'Alexandra Bruell')
+                .slice(0, 1)"
               :key="post.id"
             >
               <tagUnderAsideSection :post="post"></tagUnderAsideSection>
             </div>
 
             <div
-              class="w-[15vw] px-1"
-              v-for="post in allPosts.posts.posts
-                .filter((post) => post.tags.includes('love'))
-                .slice(3, 4)"
+              class=""
+              v-for="post in allPosts.posts.articles
+                .filter((post) => post.author === 'Ken Thomas')
+                .slice(0, 1)"
               :key="post.id"
             >
               <tagUnderAsideSection :post="post"></tagUnderAsideSection>
