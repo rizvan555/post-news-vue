@@ -85,6 +85,10 @@
             </div>
           </div>
           <div class="border-b border-black"></div>
+
+          <div class="" v-for="post in allPosts.posts.articles.slice(1, 10)" :key="post.id">
+            <tagAuthorAsideSection :post="post"></tagAuthorAsideSection>
+          </div>
         </div>
       </div>
     </main>
@@ -92,13 +96,14 @@
 </template>
 
 <script>
+import { useNavbarStore } from '../stores/navbar'
+import { useMainStore } from '../stores/mainSection'
 import navigationBar from '@/components/NavigationBar.vue'
 import mainSection from '@/components/MainSection.vue'
 import asideSection from '@/components/AsideSection.vue'
 import underAsideSection from '@/components/UnderAsideSection.vue'
 import underMainSection from '@/components/UnderMainSection.vue'
-import { useNavbarStore } from '../stores/navbar'
-import { useMainStore } from '../stores/mainSection'
+import AuthorAsideSection from '../components/authorAsideSection.vue'
 
 export default {
   components: {
@@ -106,7 +111,8 @@ export default {
     tagMainSection: mainSection,
     tagAsideSection: asideSection,
     tagUnderAsideSection: underAsideSection,
-    tagUnderMainSection: underMainSection
+    tagUnderMainSection: underMainSection,
+    tagAuthorAsideSection: AuthorAsideSection
   },
   setup() {
     const allPosts = useMainStore()

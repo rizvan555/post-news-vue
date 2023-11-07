@@ -4,10 +4,10 @@
       <div class="h-full w-full border">
         <img :src="post.urlToImage && post.urlToImage" alt="image" />
       </div>
-      <div class="px-2 py-2">
+      <a :href="post.url" class="flex flex-col px-2 py-2">
         <p class="font-bold">{{ post.title }}</p>
         <small>{{ post.description }}</small>
-      </div>
+      </a>
     </div>
   </div>
 </template>

@@ -1,12 +1,13 @@
 <template>
-  <div class="flex flex-col gap-4">
+  <a :href="post.url" class="flex flex-col gap-4">
     <div class="w-full h-[10vh] border">
       <img :src="post.urlToImage" alt="image" />
     </div>
     <div class="mt-6">
-      <small class="font-bold">{{ post.title }}</small>
+      <p class="font-bold leading-1">{{ post.title }}</p>
     </div>
-  </div>
+    <small class="text-[10px]">{{ post.publishedAt }}</small>
+  </a>
 </template>
 
 <script>
