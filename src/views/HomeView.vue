@@ -1,11 +1,14 @@
 <template>
   <div class="flex flex-col gap-4 px-10 pb-10">
-    <header class="flex justify-between items-center px-10 py-6">
-      <div>
-        <div>{{ allPosts.getNewDate }}</div>
+    <header class="flex justify-center items-center px-10 py-6">
+      <div class="">
+        <h6 class="w-[15vw] font-bold text-[12px] ml-[-30vw]">
+          {{ allPosts.getNewDate }}
+          <small class="font-medium">Today's Paper</small>
+        </h6>
       </div>
-      <div class="container">
-        <h1 class="text-4xl text-center my-8 name">The New York Times</h1>
+      <div class="">
+        <h1 class="text-4xl my-8 name">The New York Times</h1>
       </div>
     </header>
 
@@ -18,14 +21,16 @@
 
     <main>
       <div class="flex justify-between w-100%">
-        <div class="flex flex-col">
-          <div
-            class=""
-            v-for="post in allPosts.posts.articles.filter((post) => post.author === 'Jess Bravin')"
-            :key="post.id"
-          >
-            <tagMainSection :post="post"></tagMainSection>
-          </div>
+        <div class="flex flex-col w-[60vw] px-2">
+          <Carousel :autoplay="3000" :wrap-around="true" slideWidth="100vw">
+            <Slide v-for="post in allPosts.posts.articles.slice(3, 13)" :key="post.id">
+              <tagMainSection :post="post"></tagMainSection>
+            </Slide>
+
+            <template #addons>
+              <Pagination />
+            </template>
+          </Carousel>
 
           <div class="flex gap-2 py-3">
             <div
@@ -105,14 +110,22 @@ import underAsideSection from '@/components/UnderAsideSection.vue'
 import underMainSection from '@/components/UnderMainSection.vue'
 import AuthorAsideSection from '../components/authorAsideSection.vue'
 
+// import { defineComponent } from 'vue'
+import { Carousel, Pagination, Slide } from 'vue3-carousel'
+import 'vue3-carousel/dist/carousel.css'
+
 export default {
+  name: 'Autoplay',
   components: {
     tagNavigationBar: navigationBar,
     tagMainSection: mainSection,
     tagAsideSection: asideSection,
     tagUnderAsideSection: underAsideSection,
     tagUnderMainSection: underMainSection,
-    tagAuthorAsideSection: AuthorAsideSection
+    tagAuthorAsideSection: AuthorAsideSection,
+    Carousel,
+    Slide,
+    Pagination
   },
   setup() {
     const allPosts = useMainStore()

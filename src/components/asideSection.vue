@@ -1,6 +1,6 @@
 <template>
-  <div class="w-[30vw]">
-    <div class="flex flex-col p-3">
+  <div class="w-[33vw]">
+    <div class="flex flex-col px-3">
       <div class="h-full w-full border">
         <img :src="post.urlToImage && post.urlToImage" alt="image" />
       </div>

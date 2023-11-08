@@ -1,7 +1,7 @@
 <template>
   <main class="w-full">
     <div class="flex justify-between">
-      <div class="grid grid-cols-1 w-[60vw]">
+      <div class="grid grid-cols-1 w-[62vw]">
         <a :href="post.url" class="flex justify-center gap-4 pb-6 mb-8">
           <div class="flex flex-col w-[40vw] h-[30vh]">
             <p class="text-xl font-bold mb-6">
