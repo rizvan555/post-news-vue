@@ -54,6 +54,12 @@
             </div>
           </div>
           <div class="border-b-2 border-black py-2"></div>
+
+          <div class="mt-2">
+            <div v-for="post in allPosts.posts.articles.slice(20, 30)" :key="post.id">
+              <tagMainSection :post="post"></tagMainSection>
+            </div>
+          </div>
         </div>
 
         <div class="flex flex-col border-l-2 px-2">
@@ -70,7 +76,6 @@
 
           <div class="grid grid-cols-2 py-4 gap-4">
             <div
-              class=""
               v-for="post in allPosts.posts.articles
                 .filter((post) => post.author === 'Alexandra Bruell')
                 .slice(0, 1)"
@@ -80,7 +85,6 @@
             </div>
 
             <div
-              class=""
               v-for="post in allPosts.posts.articles
                 .filter((post) => post.author === 'Ken Thomas')
                 .slice(0, 1)"
@@ -110,12 +114,11 @@ import underAsideSection from '@/components/UnderAsideSection.vue'
 import underMainSection from '@/components/UnderMainSection.vue'
 import AuthorAsideSection from '../components/authorAsideSection.vue'
 
-// import { defineComponent } from 'vue'
 import { Carousel, Pagination, Slide } from 'vue3-carousel'
 import 'vue3-carousel/dist/carousel.css'
 
 export default {
-  name: 'Autoplay',
+  name: 'AutoplayButton',
   components: {
     tagNavigationBar: navigationBar,
     tagMainSection: mainSection,
